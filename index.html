@@ -14,29 +14,31 @@
   </head>
 
   <body>
-    <div class="header">
-      <h1>Welcome to our wildlife website</h1>
-    </div>
-
-    <div class="nav">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Our team</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Blog</a></li>
-      </ul>
-
-      <form class="search">
-        <input type="search" name="q" placeholder="Search query">
-        <input type="submit" value="Go!">
-      </form>
-    </div>
+    <header>
+      <div class="header">
+        <h1>Welcome to our wildlife website</h1>
+      </div>
+      <div class="nav">
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Our team</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </nav> <!-- Wrap link lists meant for navigation with a semantic <nav> element -->
+        <form class="search">
+          <input type="search" name="q" placeholder="Search query"> <!-- We should create a <label> element for this input, or add an aria-label="" attribute to the input so screen readers can decipher what the input is for. -->
+          <input type="submit" value="Go!">
+        </form>
+      </div>
+    </header> <!-- Wrap all header content in a <header> tag so it is contained semantically -->
 
     <main>
 
       <article>
 
-        <h1>The trouble with Bears</h1>
+        <h1>The trouble with Bears</h1> <!-- There should only be a single instance of <h1> on a page, and it should contain the main topic of the page. -->
 
           <p>
             By Evan Wild
@@ -67,19 +69,21 @@
           </p>
 
         <table>
+          <caption>Types of Bear</caption> <!-- We add a <caption> to briefly describe the form's purpose -->
           <thead>
             <tr id="heading">
-              <td><h3>Bear Type</h3></td>
-              <td><h3>Coat</h3></td>
-              <td><h3>Adult size</h3></td>
-              <td><h3>Habitat</h3></td>
-              <td><h3>Lifespan</h3></td>
-              <td><h3>Diet</h3></td>
+              <th scope="col">Bear Type</th>
+              <th scope="col">Coat</th>
+              <th scope="col">Adult size</th>
+              <th scope="col">Habitat</th>
+              <th scope="col">Lifespan</th>
+              <th scope="col">Diet</th>
+              <!-- For the main header row, we don't need to use heading tags for semantics, what we need is actually to use the Table Head <th> element. We also want to add a scope to let screen readers know what information belongs to this heading. -->
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Wild</td>
+              <th scope="row">Wild</th> <!-- just like the headings above, these headings are meant to describe the data in the row it's in, so we need to make it a table heading, and add the scope="" attribute. -->
               <td>Brown or black</td>
               <td>1.4 to 2.8 meters</td>
               <td>Woods and forests</td>
@@ -87,7 +91,7 @@
               <td>Fish, meat, plants</td>
             </tr>
             <tr>
-              <td>Urban</td>
+              <th scope="row">Urban</th>
               <td>North Face</td>
               <td>18 to 22</td>
               <td>Condos and coffee shops</td>
@@ -106,7 +110,7 @@
             cottages.
           </p>
 
-          <img src="media/wild-bear.jpg">
+          <img src="media/wild-bear.jpg"> <!-- we should add alt="" attributes to images meant for content so they can be described by a screen reader for users who can't see. -->
 
           <p>
             Urban (gentrified) bears on the other hand have largely abandoned the old ways. They will hunt other 
@@ -116,7 +120,7 @@
             like baked beans, ready meals, and microwave ovens.
           </p>
 
-          <img src="media/urban-bear.jpg">
+          <img src="media/urban-bear.jpg"> <!-- we should add alt="" attributes to images meant for content so they can be described by a screen reader for users who can't see. -->
 
           <p>
             Urban bears will sleep anywhere they can, from bus shelters and parks, to the toilets in McDonalds, to 
@@ -142,6 +146,10 @@
           <source src="media/bear.ogg" type="audio/ogg">
           <p>It looks like your browser doesn't support HTML5 audio players.</p>
         </audio>
+        <!--
+          For multimedia, you want to include a place for users to download the file if the browser they are using can't play it (Include a download link in the <p> fallback after the <source> elements above).
+          You also want to include a transcript. For audio it's enough to link to a transcript page, or write the transcript out in HTML if it's small enough not to mess up the page. For video, just make sure it has proper closed captioning.
+        -->
 
         <aside>
 
@@ -166,11 +174,11 @@
 
               <form class="comment-form">
                 <div class="flex-pair">
-                  Your name:
+                  <label for="name">Your name:</label> <!-- Wrap input labels with the <label> element, and add a for="" attribute that contains the ID of the input this label is describing. -->
                   <input type="text" name="name" id="name" placeholder="Enter your name">
                 </div>
                 <div class="flex-pair">
-                  Your comment:
+                  <label for="comment">Your comment:</label>
                   <input type="text" name="comment" id="comment" placeholder="Enter your comment">
                 </div>
                 <div>
@@ -202,13 +210,15 @@
       <div class="secondary">
         <h1>Related</h1>
 
-        <ul>
-          <li><a href="#">The trouble with Bees</a></li>
-          <li><a href="#">The trouble with Otters</a></li>
-          <li><a href="#">The trouble with Penguins</a></li>
-          <li><a href="#">The trouble with Octopi</a></li>
-          <li><a href="#">The trouble with Lemurs</a></li>
-        </ul>
+        <nav>
+          <ul>
+            <li><a href="#">The trouble with Bees</a></li>
+            <li><a href="#">The trouble with Otters</a></li>
+            <li><a href="#">The trouble with Penguins</a></li>
+            <li><a href="#">The trouble with Octopi</a></li>
+            <li><a href="#">The trouble with Lemurs</a></li>
+          </ul>
+        </nav>
       </div>
     </main>
 
